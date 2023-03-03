@@ -53,6 +53,7 @@ $route['default_controller'] = 'user';
 $route['giris-yap'] = 'user/login_form';
 $route['giris'] = 'user/login';
 $route['yazi-listesi'] = 'post';
+$route['oyla'] = 'post/vote';
 $route['cikis'] = 'user/logout';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

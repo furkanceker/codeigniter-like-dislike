@@ -27,7 +27,6 @@
         </div>
     </div>
 </div>
-<script src="<?= base_url('assets/jquery-3.6.3.min.js') ?>"></script>
-<script src="<?= base_url('assets/custom.js') ?>"></script>
+
 </body>
 </html>
