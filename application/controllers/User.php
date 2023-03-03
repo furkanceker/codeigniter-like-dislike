@@ -27,7 +27,20 @@ class User extends CI_Controller {
 			$this->session->set_flashdata("error",validation_errors());
 			redirect('user/login_form');
 		}else{
-			echo "ok";
+			$this->load->model('user_model');
+			$user = $this->user_model->get_user([
+				'username' => $this->input->post("username"),
+				'password' => md5($this->input->post("password")),
+			]);
+
+			if($user){
+
+				echo "giriş başarılı";
+
+			}else{
+				$this->session->set_flashdata("error","Kullanıcı Bulunamadı");
+				redirect('user/login_form');
+			}
 		}
 
 	}
