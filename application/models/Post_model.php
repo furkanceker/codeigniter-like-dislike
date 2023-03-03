@@ -7,9 +7,15 @@ class Post_model extends CI_Model {
         $this->table = "posts";
     }
 
-    public function get_all($where){
+    public function get($where){
 
-        return $this->db->where($where)->get($this->table)->result();
+        return $this->db->where($where)->get($this->table)->row();
+
+    }
+
+    public function get_all(){
+
+        return $this->db->get($this->table)->result();
 
     }
 }

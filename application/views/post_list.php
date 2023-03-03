@@ -23,5 +23,26 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<div class="container">
+    <div class="row">
+        <?php foreach($posts as $post) { ?>
+        <div class="col-md-12 well">
+            <p>
+                <?= $post->title; ?>
+            </p>
+            <div class="thumbs_container">
+                <button class="btn btn-success">
+                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                    <span class="like_count">(123)</span>
+                </button>
+                <button class="btn btn-danger">
+                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                    <span class="dislike_count">(123)</span>
+                </button>
+            </div>
+        </div>
+        <?php } ?>
+    </div>
+</div>
 </body>
 </html>
