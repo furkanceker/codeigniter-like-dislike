@@ -12,14 +12,15 @@
     <div class="row">
         <h3 class="text-center">Giriş Yap</h3>
         <div class="col-md-6 col-md-offset-3 well">
+            <?php if($this->session->userdata("error")) { echo '<div class="alert alert-danger">'.$this->session->userdata("error").'</div>'; } ?>
             <form action="<?= base_url('giris') ?>" method="post">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Kullanıcı Adı</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kullanıcı Adı">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Şifre</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre">
+                    <label>Şifre</label>
+                    <input type="password" class="form-control" name="password" placeholder="Şifre">
                 </div>
                 <button type="submit" class="btn btn-default">Giriş Yap</button>
             </form>
