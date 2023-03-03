@@ -15,8 +15,10 @@ class Post extends CI_Controller {
     }
 
     public function index(){
-        $viewData["user"] = $this->session->userdata("user");
-        $viewData["posts"] = $this->post_model->get_all();
+        $viewData = new stdClass();
+        $viewData->user = $this->session->userdata("user");
+        /* $viewData->posts = $this->post_model->get_all(); */
+        $viewData->posts = $this->post_model->post_list();
         $this->load->view("post_list",$viewData);
     }
 
