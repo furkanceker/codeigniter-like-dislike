@@ -25,7 +25,7 @@ class User extends CI_Controller {
 
 		if($this->form_validation->run() === FALSE){
 			$this->session->set_flashdata("error",validation_errors());
-			redirect('user/login_form');
+			redirect(base_url('giris-yap'));
 		}else{
 			$this->load->model('user_model');
 			$user = $this->user_model->get_user([
@@ -34,12 +34,13 @@ class User extends CI_Controller {
 			]);
 
 			if($user){
-
-				echo "giriş başarılı";
+				
+				$this->session->set_userdata("user",$user);
+				redirect(base_url('yazi-listesi'));
 
 			}else{
 				$this->session->set_flashdata("error","Kullanıcı Bulunamadı");
-				redirect('user/login_form');
+				redirect(base_url('giris-yap'));
 			}
 		}
 
