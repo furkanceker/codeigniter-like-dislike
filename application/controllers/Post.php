@@ -44,7 +44,6 @@ class Post extends CI_Controller {
             [
                 "id" => $vote->id,
             ]);
-            echo "update edildi";
         }else{
             $data = [
                 "user_id" => $user_id,
@@ -52,7 +51,9 @@ class Post extends CI_Controller {
                 "vote_status" => $vote_status
             ];
             $insert = $this->vote_model->insert($data);
-            echo "insert edildi";
+            
         }
+        $renderData["posts"] = $this->post_model->post_list();
+        echo $this->load->view("renders/post_list_render",$renderData,true);
     }
 }
