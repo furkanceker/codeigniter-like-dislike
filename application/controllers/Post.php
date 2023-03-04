@@ -35,15 +35,23 @@ class Post extends CI_Controller {
         ]);
 
         if($vote){
+
+            if($vote->vote_status == $vote_status){
+                $new_vote = 0;
+            }else{
+                $new_vote = $vote_status;
+            }
+
             $update = $this->vote_model->update(
             [
                 "user_id" => $user_id,
                 "post_id" => $post_id,
-                "vote_status" => $vote_status
+                "vote_status" => $new_vote
             ],
             [
                 "id" => $vote->id,
             ]);
+
         }else{
             $data = [
                 "user_id" => $user_id,
